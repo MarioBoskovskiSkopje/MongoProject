@@ -2,27 +2,24 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var SchedulesSchema = new Schema({
-  Fields: [
+  id: String,
+  Batches: [
     {
-      Batches: [
-        {
-          batch: String,
-          bottles: Number,
-          machine_ID: String,
-          schedule_ID: String,
-          slots: String,
-          timeTotal: NUmber
-        }
-      ],
-      Machines: [
+      batch: String,
+      bottles: Number,
+      machine_ID: String,
+      schedule_ID: String,
+      slots: String,
+      timeTotal: NUmber
+    }
+  ],
+  Machines: [
+    {
+      id: String,
+      times: [
         {
           id: String,
-          times: [
-            {
-              id: String,
-              Times: Number
-            }
-          ]
+          Times: Number
         }
       ]
     }
