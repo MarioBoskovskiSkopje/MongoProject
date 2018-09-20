@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var LogController = require('../controllers/LogController.js');
+var LogController = require("../controllers/LogController.js");
 
 /*
  * GET
  */
-router.get('/', LogController.list);
+router.get("/", LogController.list);
 
 /*
  * GET
  */
-router.get('/:id', LogController.show);
+router.get("/:id", LogController.show);
 
 /*
  * POST
  */
-router.post('/', LogController.create);
+router.post("/", LogController.create);
 
 /*
  * PUT
  */
-router.put('/:id', LogController.update);
+router.put("/", LogController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', LogController.remove);
+router.delete("/:id", LogController.remove);
 
 module.exports = router;

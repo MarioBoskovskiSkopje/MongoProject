@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var PackagesController = require('../controllers/PackagesController.js');
+var PackagesController = require("../controllers/PackagesController.js");
 
 /*
  * GET
  */
-router.get('/', PackagesController.list);
+router.get("/", PackagesController.list);
 
 /*
  * GET
  */
-router.get('/:id', PackagesController.show);
+router.get("/:id", PackagesController.show);
 
 /*
  * POST
  */
-router.post('/', PackagesController.create);
+router.post("/", PackagesController.create);
 
 /*
  * PUT
  */
-router.put('/:id', PackagesController.update);
+router.put("/", PackagesController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', PackagesController.remove);
+router.delete("/:id", PackagesController.remove);
 
 module.exports = router;

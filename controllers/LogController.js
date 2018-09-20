@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    LogModel.findOne({ _id: id }, function(err, Log) {
+    var obj = {};
+    obj[idenifiers.Log] = id;
+    LogModel.findOne(obj, function(err, Log) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Log.",
@@ -74,7 +76,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    LogModel.findOne({ _id: id }, function(err, Log) {
+    var obj = {};
+    obj[idenifiers.Log] = id;
+    LogModel.findOne(obj, function(err, Log) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Log",
@@ -115,7 +119,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    LogModel.findByIdAndRemove(id, function(err, Log) {
+    var obj = {};
+    obj[idenifiers.Log] = id;
+    LogModel.findOneAndRemove(obj, function(err, Log) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Log.",

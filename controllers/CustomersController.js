@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    CustomersModel.findOne({ _id: id }, function(err, Customers) {
+    var obj = {};
+    obj[idenifiers.Customers] = id;
+    CustomersModel.findOne(obj, function(err, Customers) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Customers.",
@@ -68,7 +70,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    CustomersModel.findOne({ _id: id }, function(err, Customers) {
+    var obj = {};
+    obj[idenifiers.Customers] = id;
+    CustomersModel.findOne(obj, function(err, Customers) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Customers",
@@ -105,7 +109,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    CustomersModel.findByIdAndRemove(id, function(err, Customers) {
+    var obj = {};
+    obj[idenifiers.Customers] = id;
+    CustomersModel.findOneAndRemove(obj, function(err, Customers) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Customers.",

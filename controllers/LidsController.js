@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    LidsModel.findOne({ _id: id }, function(err, Lids) {
+    var obj = {};
+    obj[idenifiers.Lids] = id;
+    LidsModel.findOne(obj, function(err, Lids) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Lids.",
@@ -70,7 +72,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    LidsModel.findOne({ _id: id }, function(err, Lids) {
+    var obj = {};
+    obj[idenifiers.Lids] = id;
+    LidsModel.findOne(obj, function(err, Lids) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Lids",
@@ -107,7 +111,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    LidsModel.findByIdAndRemove(id, function(err, Lids) {
+    var obj = {};
+    obj[idenifiers.Lids] = id;
+    LidsModel.findOneAndRemove(obj, function(err, Lids) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Lids.",

@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    InventoryModel.findOne({ _id: id }, function(err, Inventory) {
+    var obj = {};
+    obj[idenifiers.Inventory] = id;
+    InventoryModel.findOne(obj, function(err, Inventory) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Inventory.",
@@ -78,7 +80,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    InventoryModel.findOne({ _id: id }, function(err, Inventory) {
+    var obj = {};
+    obj[idenifiers.Inventory] = id;
+    InventoryModel.findOne(obj, function(err, Inventory) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Inventory",
@@ -133,7 +137,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    InventoryModel.findByIdAndRemove(id, function(err, Inventory) {
+    var obj = {};
+    obj[idenifiers.Inventory] = id;
+    InventoryModel.findOneAndRemove(obj, function(err, Inventory) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Inventory.",

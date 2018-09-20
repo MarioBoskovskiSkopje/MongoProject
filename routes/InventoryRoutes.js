@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var InventoryController = require('../controllers/InventoryController.js');
+var InventoryController = require("../controllers/InventoryController.js");
 
 /*
  * GET
  */
-router.get('/', InventoryController.list);
+router.get("/", InventoryController.list);
 
 /*
  * GET
  */
-router.get('/:id', InventoryController.show);
+router.get("/:id", InventoryController.show);
 
 /*
  * POST
  */
-router.post('/', InventoryController.create);
+router.post("/", InventoryController.create);
 
 /*
  * PUT
  */
-router.put('/:id', InventoryController.update);
+router.put("/", InventoryController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', InventoryController.remove);
+router.delete("/:id", InventoryController.remove);
 
 module.exports = router;

@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var LabellingController = require('../controllers/LabellingController.js');
+var LabellingController = require("../controllers/LabellingController.js");
 
 /*
  * GET
  */
-router.get('/', LabellingController.list);
+router.get("/", LabellingController.list);
 
 /*
  * GET
  */
-router.get('/:id', LabellingController.show);
+router.get("/:id", LabellingController.show);
 
 /*
  * POST
  */
-router.post('/', LabellingController.create);
+router.post("/", LabellingController.create);
 
 /*
  * PUT
  */
-router.put('/:id', LabellingController.update);
+router.put("/", LabellingController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', LabellingController.remove);
+router.delete("/:id", LabellingController.remove);
 
 module.exports = router;

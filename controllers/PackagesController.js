@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    PackagesModel.findOne({ _id: id }, function(err, Packages) {
+    var obj = {};
+    obj[idenifiers.Packages] = id;
+    PackagesModel.findOne(obj, function(err, Packages) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Packages.",
@@ -71,7 +73,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    PackagesModel.findOne({ _id: id }, function(err, Packages) {
+    var obj = {};
+    obj[idenifiers.Packages] = id;
+    PackagesModel.findOne(obj, function(err, Packages) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Packages",
@@ -115,7 +119,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    PackagesModel.findByIdAndRemove(id, function(err, Packages) {
+    var obj = {};
+    obj[idenifiers.Packages] = id;
+    PackagesModel.findOneAndRemove(obj, function(err, Packages) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Packages.",

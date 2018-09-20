@@ -20,7 +20,7 @@ router.post("/", SchedulesBreaksController.create);
 /*
  * PUT
  */
-router.put("/:id", SchedulesBreaksController.update);
+router.put("/", SchedulesBreaksController.update);
 
 /*
  * DELETE

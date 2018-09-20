@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var BrandedTypesController = require('../controllers/BrandedTypesController.js');
+var BrandedTypesController = require("../controllers/BrandedTypesController.js");
 
 /*
  * GET
  */
-router.get('/', BrandedTypesController.list);
+router.get("/", BrandedTypesController.list);
 
 /*
  * GET
  */
-router.get('/:id', BrandedTypesController.show);
+router.get("/:id", BrandedTypesController.show);
 
 /*
  * POST
  */
-router.post('/', BrandedTypesController.create);
+router.post("/", BrandedTypesController.create);
 
 /*
  * PUT
  */
-router.put('/:id', BrandedTypesController.update);
+router.put("/", BrandedTypesController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', BrandedTypesController.remove);
+router.delete("/:id", BrandedTypesController.remove);
 
 module.exports = router;

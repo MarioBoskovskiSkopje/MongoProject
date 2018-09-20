@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    UnbrandedTypesModel.findOne({ _id: id }, function(err, UnbrandedTypes) {
+    var obj = {};
+    obj[idenifiers.UnbrandedTypes] = id;
+    UnbrandedTypesModel.findOne(obj, function(err, UnbrandedTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting UnbrandedTypes.",
@@ -71,7 +73,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    UnbrandedTypesModel.findOne({ _id: id }, function(err, UnbrandedTypes) {
+    var obj = {};
+    obj[idenifiers.UnbrandedTypes] = id;
+    UnbrandedTypesModel.findOne(obj, function(err, UnbrandedTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting UnbrandedTypes",
@@ -117,7 +121,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    UnbrandedTypesModel.findByIdAndRemove(id, function(err, UnbrandedTypes) {
+    var obj = {};
+    obj[idenifiers.UnbrandedTypes] = id;
+    UnbrandedTypesModel.findOneAndRemove(obj, function(err, UnbrandedTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the UnbrandedTypes.",

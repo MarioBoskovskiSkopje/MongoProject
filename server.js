@@ -10,7 +10,7 @@ mongoose.connect("mongodb://localhost:27017/gbvco");
 mongoose.connection.on("connected", () => console.log("Connected"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use("/allroutes", router.AllItemRoutes);
 app.use("/bottletypes", router.BottleTypesRoutes);
 app.use("/boxes", router.BoxesRoutes);
 app.use("/brandedtypes", router.BrandedTypesRoutes);
@@ -33,7 +33,7 @@ app.use("/mixingteam", router.MixingTeamRoutes);
 app.use("/orders", router.OrdersRoutes);
 app.use("/packages", router.PackagesRoutes);
 app.use("/packaging", router.PackagingRoutes);
-app.use("/premixcoloring", router.PremixColorigRoutes);
+app.use("/premixcoloring", router.PremixColoringRoutes);
 app.use("/premixestypes", router.PremixesTypesRoutes);
 app.use("/printing", router.PrintingRoutes);
 app.use("/production", router.ProductionRoutes);

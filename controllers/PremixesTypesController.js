@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    PremixesTypesModel.findOne({ _id: id }, function(err, PremixesTypes) {
+    var obj = {};
+    obj[idenifiers.PremixesTypes] = id;
+    PremixesTypesModel.findOne(obj, function(err, PremixesTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting PremixesTypes.",
@@ -70,7 +72,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    PremixesTypesModel.findOne({ _id: id }, function(err, PremixesTypes) {
+    var obj = {};
+    obj[idenifiers.PremixesTypes] = id;
+    PremixesTypesModel.findOne(obj, function(err, PremixesTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting PremixesTypes",
@@ -113,7 +117,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    PremixesTypesModel.findByIdAndRemove(id, function(err, PremixesTypes) {
+    var obj = {};
+    obj[idenifiers.PremixesTypes] = id;
+    PremixesTypesModel.findOneAndRemove(obj, function(err, PremixesTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the PremixesTypes.",

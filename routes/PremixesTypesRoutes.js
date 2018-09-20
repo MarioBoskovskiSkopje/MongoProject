@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var PremixesTypesController = require('../controllers/PremixesTypesController.js');
+var PremixesTypesController = require("../controllers/PremixesTypesController.js");
 
 /*
  * GET
  */
-router.get('/', PremixesTypesController.list);
+router.get("/", PremixesTypesController.list);
 
 /*
  * GET
  */
-router.get('/:id', PremixesTypesController.show);
+router.get("/:id", PremixesTypesController.show);
 
 /*
  * POST
  */
-router.post('/', PremixesTypesController.create);
+router.post("/", PremixesTypesController.create);
 
 /*
  * PUT
  */
-router.put('/:id', PremixesTypesController.update);
+router.put("/", PremixesTypesController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', PremixesTypesController.remove);
+router.delete("/:id", PremixesTypesController.remove);
 
 module.exports = router;

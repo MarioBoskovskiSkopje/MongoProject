@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var ReferencesController = require('../controllers/ReferencesController.js');
+var ReferencesController = require("../controllers/ReferencesController.js");
 
 /*
  * GET
  */
-router.get('/', ReferencesController.list);
+router.get("/", ReferencesController.list);
 
 /*
  * GET
  */
-router.get('/:id', ReferencesController.show);
+router.get("/:id", ReferencesController.show);
 
 /*
  * POST
  */
-router.post('/', ReferencesController.create);
+router.post("/", ReferencesController.create);
 
 /*
  * PUT
  */
-router.put('/:id', ReferencesController.update);
+router.put("/", ReferencesController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', ReferencesController.remove);
+router.delete("/:id", ReferencesController.remove);
 
 module.exports = router;

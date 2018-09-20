@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    BrandedTypesModel.findOne({ _id: id }, function(err, BrandedTypes) {
+    var obj = {};
+    obj[idenifiers.BrandedTypes] = id;
+    BrandedTypesModel.findOne(obj, function(err, BrandedTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting BrandedTypes.",
@@ -71,7 +73,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    BrandedTypesModel.findOne({ _id: id }, function(err, BrandedTypes) {
+    var obj = {};
+    obj[idenifiers.BrandedTypes] = id;
+    BrandedTypesModel.findOne(obj, function(err, BrandedTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting BrandedTypes",
@@ -117,7 +121,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    BrandedTypesModel.findByIdAndRemove(id, function(err, BrandedTypes) {
+    var obj = {};
+    obj[idenifiers.BrandedTypes] = id;
+    BrandedTypesModel.findOneAndRemove(obj, function(err, BrandedTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the BrandedTypes.",

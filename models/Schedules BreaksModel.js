@@ -5,7 +5,7 @@ var SchedulesBreaksSchema = new Schema({
   breakTimes: String,
   shiftTimes: String,
   status: Boolean,
-  key: String
+  day: String
 });
 
 module.exports = mongoose.model("Schedules Breaks", SchedulesBreaksSchema);

@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    ColorModel.findOne({ _id: id }, function(err, Color) {
+    var obj = {};
+    obj[idenifiers.Color] = id;
+    ColorModel.findOne(obj, function(err, Color) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Color.",
@@ -71,7 +73,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    ColorModel.findOne({ _id: id }, function(err, Color) {
+    var obj = {};
+    obj[idenifiers.Color] = id;
+    ColorModel.findOne(obj, function(err, Color) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Color",
@@ -113,7 +117,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    ColorModel.findByIdAndRemove(id, function(err, Color) {
+    var obj = {};
+    obj[idenifiers.Color] = id;
+    ColorModel.findOneAndRemove(obj, function(err, Color) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Color.",

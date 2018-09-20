@@ -75,10 +75,10 @@ var ShippingSchema = new Schema({
     id: Number,
     MCTrecipe: Number,
     name: String,
-    Nicorec: number,
+    Nicorec: Number,
     pg: Number,
     PGrec: Number,
-    strength: number,
+    strength: Number,
     vg: Number,
     VGrec: Number,
     Color: {

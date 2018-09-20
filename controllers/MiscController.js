@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    MiscModel.findOne({ _id: id }, function(err, Misc) {
+    var obj = {};
+    obj[idenifiers.Misc] = id;
+    MiscModel.findOne(obj, function(err, Misc) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Misc.",
@@ -70,7 +72,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    MiscModel.findOne({ _id: id }, function(err, Misc) {
+    var obj = {};
+    obj[idenifiers.Misc] = id;
+    MiscModel.findOne(obj, function(err, Misc) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Misc",
@@ -107,7 +111,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    MiscModel.findByIdAndRemove(id, function(err, Misc) {
+    var obj = {};
+    obj[idenifiers.Misc] = id;
+    MiscModel.findOneAndRemove(obj, function(err, Misc) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Misc.",

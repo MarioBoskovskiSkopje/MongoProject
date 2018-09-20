@@ -26,7 +26,10 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    BoxesModel.findOne({ _id: id }, function(err, Boxes) {
+    var obj = {};
+    obj[idenifiers.Boxes] = id;
+
+    BoxesModel.findOne(obj, function(err, Boxes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Boxes.",
@@ -72,7 +75,10 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    BoxesModel.findOne({ _id: id }, function(err, Boxes) {
+    var obj = {};
+    obj[idenifiers.Boxes] = id;
+
+    BoxesModel.findOne(obj, function(err, Boxes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Boxes",
@@ -117,7 +123,10 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    BoxesModel.findByIdAndRemove(id, function(err, Boxes) {
+    var obj = {};
+    obj[idenifiers.Boxes] = id;
+
+    BoxesModel.findOneAndRemove(obj, function(err, Boxes) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Boxes.",
@@ -128,11 +137,13 @@ module.exports = {
     });
   },
   find: function(req, res) {
-    var sku = req.params.sku;
-    BottleTypesModel.findOne({ sku }, function(err, BottleTypes) {
+    var id = req.params.id;
+    var obj = {};
+    obj[idenifiers.Boxes] = id;
+    BoxesModel.findOne(obj, function(err, Boxes) {
       if (err) {
         return res.status(500).json({
-          message: "Error when getting BottleTypes.",
+          message: "Error when getting Boxes.",
           error: err
         });
       }

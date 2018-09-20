@@ -26,10 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    SchedulesReferenceModel.findOne({ _id: id }, function(
-      err,
-      SchedulesReference
-    ) {
+    var obj = {};
+    obj[idenifiers.SchedulesReference] = id;
+    SchedulesReferenceModel.findOne(obj, function(err, SchedulesReference) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Schedules Reference.",
@@ -81,10 +80,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    SchedulesReferenceModel.findOne({ _id: id }, function(
-      err,
-      SchedulesReference
-    ) {
+    var obj = {};
+    obj[idenifiers.SchedulesReference] = id;
+    SchedulesReferenceModel.findOne(obj, function(err, SchedulesReference) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Schedules Reference",
@@ -129,7 +127,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    SchedulesReferenceModel.findByIdAndRemove(id, function(
+    var obj = {};
+    obj[idenifiers.SchedulesReference] = id;
+    SchedulesReferenceModel.findOneAndRemove(obj, function(
       err,
       SchedulesReference
     ) {

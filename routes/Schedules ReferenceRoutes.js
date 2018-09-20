@@ -24,7 +24,7 @@ router.post("/findBatches", SchedulesReferenceController.findBatches);
 /*
  * PUT
  */
-router.put("/:id", SchedulesReferenceController.update);
+router.put("/", SchedulesReferenceController.update);
 
 /*
  * DELETE

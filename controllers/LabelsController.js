@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    LabelsModel.findOne({ _id: id }, function(err, Labels) {
+    var obj = {};
+    obj[idenifiers.Labels] = id;
+    LabelsModel.findOne(obj, function(err, Labels) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Labels.",
@@ -70,7 +72,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    LabelsModel.findOne({ _id: id }, function(err, Labels) {
+    var obj = {};
+    obj[idenifiers.Labels] = id;
+    LabelsModel.findOne(obj, function(err, Labels) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Labels",
@@ -109,7 +113,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    LabelsModel.findByIdAndRemove(id, function(err, Labels) {
+    var obj = {};
+    obj[idenifiers.Labels] = id;
+    LabelsModel.findOneAndRemove(obj, function(err, Labels) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Labels.",

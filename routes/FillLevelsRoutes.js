@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var FillLevelsController = require('../controllers/FillLevelsController.js');
+var FillLevelsController = require("../controllers/FillLevelsController.js");
 
 /*
  * GET
  */
-router.get('/', FillLevelsController.list);
+router.get("/", FillLevelsController.list);
 
 /*
  * GET
  */
-router.get('/:id', FillLevelsController.show);
+router.get("/:id", FillLevelsController.show);
 
 /*
  * POST
  */
-router.post('/', FillLevelsController.create);
+router.post("/", FillLevelsController.create);
 
 /*
  * PUT
  */
-router.put('/:id', FillLevelsController.update);
+router.put("/", FillLevelsController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', FillLevelsController.remove);
+router.delete("/:id", FillLevelsController.remove);
 
 module.exports = router;

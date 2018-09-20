@@ -1,5 +1,5 @@
 var BottleTypesModel = require("../models/BottleTypesModel.js");
-
+var idenifiers = require("../identifiers.js");
 /**
  * BottleTypesController.js
  *
@@ -26,7 +26,10 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    BottleTypesModel.findOne({ _id: id }, function(err, BottleTypes) {
+    var obj = {};
+    obj[idenifiers.BottleTypes] = id;
+
+    BottleTypesModel.findOne(obj, function(err, BottleTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting BottleTypes.",
@@ -46,23 +49,42 @@ module.exports = {
    * BottleTypesController.create()
    */
   create: function(req, res) {
-    var BottleTypes = new BottleTypesModel({
-      Completed: req.body.Completed,
-      name: req.body.name,
-      Reserved: req.body.Reserved,
-      Running: req.body.Running,
-      sku: req.body.sku,
-      shortname: req.body.shortname
-    });
-
-    BottleTypes.save(function(err, BottleTypes) {
+    var obj = {};
+    obj[idenifiers.BottleTypes] = req.body[idenifiers.BottleTypes];
+    BottleTypesModel.findOne(obj, (err, BottleTypesRes) => {
       if (err) {
         return res.status(500).json({
           message: "Error when creating BottleTypes",
           error: err
         });
       }
-      return res.status(201).json(BottleTypes);
+      if (BottleTypesRes == null) {
+        var BottleTypes = new BottleTypesModel({
+          Completed: req.body.Completed,
+          name: req.body.name,
+          Reserved: req.body.Reserved,
+          Running: req.body.Running,
+          sku: req.body.sku
+        });
+        BottleTypes.save();
+        return res.status(201).send("created");
+      }
+      (BottleTypesRes.name = req.body.name
+        ? req.body.name
+        : BottleTypesRes.name),
+        (BottleTypesRes.Reserved = req.body.Reserved
+          ? req.body.Reserved
+          : BottleTypesRes.Reserved),
+        (BottleTypesRes.Running = req.body.Running
+          ? req.body.Running
+          : BottleTypesRes.Running),
+        (BottleTypesRes.Completed = req.body.Completed
+          ? req.body.Completed
+          : BottleTypesRes.Running),
+        (BottleTypesRes.sku = req.body.sku ? req.body.sku : BottleTypesRes.sku);
+
+      BottleTypesRes.save();
+      return res.status(201).send("updated");
     });
   },
 
@@ -71,7 +93,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    BottleTypesModel.findOne({ _id: id }, function(err, BottleTypes) {
+    var obj = {};
+    obj[idenifiers.BottleTypes] = id;
+    BottleTypesModel.findOne(obj, function(err, BottleTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting BottleTypes",
@@ -117,7 +141,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    BottleTypesModel.findByIdAndRemove(id, function(err, BottleTypes) {
+    var obj = {};
+    obj[idenifiers.BottleTypes] = id;
+    BottleTypesModel.findOneAndRemove(obj, function(err, BottleTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the BottleTypes.",
@@ -129,8 +155,10 @@ module.exports = {
   },
 
   find: function(req, res) {
-    var sku = req.params.sku;
-    BottleTypesModel.findOne({ sku }, function(err, BottleTypes) {
+    var id = req.params.id;
+    var obj = {};
+    obj[idenifiers.BottleTypes] = id;
+    BottleTypesModel.findOne(obj, function(err, BottleTypes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting BottleTypes.",

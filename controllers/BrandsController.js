@@ -26,7 +26,7 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    BrandsModel.findOne({ _id: id }, function(err, Brands) {
+    BrandsModel.findOne(obj, function(err, Brands) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Brands.",
@@ -67,7 +67,7 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    BrandsModel.findOne({ _id: id }, function(err, Brands) {
+    BrandsModel.findOne(obj, function(err, Brands) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Brands",
@@ -101,7 +101,7 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    BrandsModel.findByIdAndRemove(id, function(err, Brands) {
+    BrandsModel.findOneAndRemove(id, function(err, Brands) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Brands.",

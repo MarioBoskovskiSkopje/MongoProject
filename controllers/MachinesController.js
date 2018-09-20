@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    MachinesModel.findOne({ _id: id }, function(err, Machines) {
+    var obj = {};
+    obj[idenifiers.Machines] = id;
+    MachinesModel.findOne(obj, function(err, Machines) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Machines.",
@@ -69,7 +71,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    MachinesModel.findOne({ _id: id }, function(err, Machines) {
+    var obj = {};
+    obj[idenifiers.Machines] = id;
+    MachinesModel.findOne(obj, function(err, Machines) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Machines",
@@ -107,7 +111,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    MachinesModel.findByIdAndRemove(id, function(err, Machines) {
+    var obj = {};
+    obj[idenifiers.Machines] = id;
+    MachinesModel.findOneAndRemove(obj, function(err, Machines) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Machines.",

@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var BrandsController = require('../controllers/BrandsController.js');
+var BrandsController = require("../controllers/BrandsController.js");
 
 /*
  * GET
  */
-router.get('/', BrandsController.list);
+router.get("/", BrandsController.list);
 
 /*
  * GET
  */
-router.get('/:id', BrandsController.show);
+router.get("/:id", BrandsController.show);
 
 /*
  * POST
  */
-router.post('/', BrandsController.create);
+router.post("/", BrandsController.create);
 
 /*
  * PUT
  */
-router.put('/:id', BrandsController.update);
+router.put("/", BrandsController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', BrandsController.remove);
+router.delete("/:id", BrandsController.remove);
 
 module.exports = router;

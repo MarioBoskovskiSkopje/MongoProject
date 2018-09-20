@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    SchedulesBreaksModel.findOne({ _id: id }, function(err, SchedulesBreaks) {
+    var obj = {};
+    obj[idenifiers.SchedulesBreaks] = id;
+    SchedulesBreaksModel.findOne(obj, function(err, SchedulesBreaks) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Schedules Breaks.",
@@ -50,7 +52,7 @@ module.exports = {
       breakTimes: req.body.breakTimes,
       shiftTimes: req.body.shiftTimes,
       status: req.body.status,
-      key: req.body.key
+      day: req.body.day
     });
 
     SchedulesBreaksModel.save(function(err, SchedulesBreaks) {
@@ -69,7 +71,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    SchedulesBreaksModel.findOne({ _id: id }, function(err, SchedulesBreaks) {
+    var obj = {};
+    obj[idenifiers.SchedulesBreaks] = id;
+    SchedulesBreaksModel.findOne(obj, function(err, SchedulesBreaks) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting Schedules Breaks",
@@ -111,7 +115,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    SchedulesBreaksModel.findByIdAndRemove(id, function(err, SchedulesBreaks) {
+    var obj = {};
+    obj[idenifiers.SchedulesBreaks] = id;
+    SchedulesBreaksModel.findOneAndRemove(obj, function(err, SchedulesBreaks) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the Schedules Breaks.",

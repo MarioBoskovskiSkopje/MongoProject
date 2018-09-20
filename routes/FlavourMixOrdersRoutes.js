@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var FlavourMixOrdersController = require('../controllers/FlavourMixOrdersController.js');
+var FlavourMixOrdersController = require("../controllers/FlavourMixOrdersController.js");
 
 /*
  * GET
  */
-router.get('/', FlavourMixOrdersController.list);
+router.get("/", FlavourMixOrdersController.list);
 
 /*
  * GET
  */
-router.get('/:id', FlavourMixOrdersController.show);
+router.get("/:id", FlavourMixOrdersController.show);
 
 /*
  * POST
  */
-router.post('/', FlavourMixOrdersController.create);
+router.post("/", FlavourMixOrdersController.create);
 
 /*
  * PUT
  */
-router.put('/:id', FlavourMixOrdersController.update);
+router.put("/", FlavourMixOrdersController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', FlavourMixOrdersController.remove);
+router.delete("/:id", FlavourMixOrdersController.remove);
 
 module.exports = router;

@@ -1,30 +1,30 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var MixingTeamController = require('../controllers/MixingTeamController.js');
+var MixingTeamController = require("../controllers/MixingTeamController.js");
 
 /*
  * GET
  */
-router.get('/', MixingTeamController.list);
+router.get("/", MixingTeamController.list);
 
 /*
  * GET
  */
-router.get('/:id', MixingTeamController.show);
+router.get("/:id", MixingTeamController.show);
 
 /*
  * POST
  */
-router.post('/', MixingTeamController.create);
+router.post("/", MixingTeamController.create);
 
 /*
  * PUT
  */
-router.put('/:id', MixingTeamController.update);
+router.put("/", MixingTeamController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', MixingTeamController.remove);
+router.delete("/:id", MixingTeamController.remove);
 
 module.exports = router;

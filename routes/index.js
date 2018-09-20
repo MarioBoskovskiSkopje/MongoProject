@@ -16,7 +16,7 @@ const fs = require("fs");
 //     });
 // }
 // console.log(exports_name);
-
+const AllItemRoutes = require("./AllItemRoutes.js");
 const BottleTypesRoutes = require("./BottleTypesRoutes.js");
 const BoxesRoutes = require("./BoxesRoutes.js");
 const BrandedTypesRoutes = require("./BrandedTypesRoutes.js");
@@ -53,6 +53,7 @@ const ShippingRoutes = require("./ShippingRoutes.js");
 const UnbrandedTypesRoutes = require("./UnbrandedTypesRoutes.js");
 
 module.exports = {
+  AllItemRoutes,
   BottleTypesRoutes,
   BoxesRoutes,
   BrandedTypesRoutes,

@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    FlavourMixesModel.findOne({ _id: id }, function(err, FlavourMixes) {
+    var obj = {};
+    obj[idenifiers.FlavourMixes] = id;
+    FlavourMixesModel.findOne(obj, function(err, FlavourMixes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting FlavourMixes.",
@@ -72,7 +74,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    FlavourMixesModel.findOne({ _id: id }, function(err, FlavourMixes) {
+    var obj = {};
+    obj[idenifiers.FlavourMixes] = id;
+    FlavourMixesModel.findOne(obj, function(err, FlavourMixes) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting FlavourMixes",
@@ -106,7 +110,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    FlavourMixesModel.findByIdAndRemove(id, function(err, FlavourMixes) {
+    var obj = {};
+    obj[idenifiers.FlavourMixes] = id;
+    FlavourMixesModel.findOneAndRemove(obj, function(err, FlavourMixes) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the FlavourMixes.",

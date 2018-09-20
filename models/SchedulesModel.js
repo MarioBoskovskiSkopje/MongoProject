@@ -10,12 +10,12 @@ var SchedulesSchema = new Schema({
       machine_ID: String,
       schedule_ID: String,
       slots: String,
-      timeTotal: NUmber
+      timeTotal: Number
     }
   ],
   Machines: [
     {
-      id: String,
+      sku: String,
       times: [
         {
           id: String,

@@ -26,7 +26,9 @@ module.exports = {
    */
   show: function(req, res) {
     var id = req.params.id;
-    FillLevelsModel.findOne({ _id: id }, function(err, FillLevels) {
+    var obj = {};
+    obj[idenifiers.FillLevels] = id;
+    FillLevelsModel.findOne(obj, function(err, FillLevels) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting FillLevels.",
@@ -68,7 +70,9 @@ module.exports = {
    */
   update: function(req, res) {
     var id = req.params.id;
-    FillLevelsModel.findOne({ _id: id }, function(err, FillLevels) {
+    var obj = {};
+    obj[idenifiers.FillLevels] = id;
+    FillLevelsModel.findOne(obj, function(err, FillLevels) {
       if (err) {
         return res.status(500).json({
           message: "Error when getting FillLevels",
@@ -103,7 +107,9 @@ module.exports = {
    */
   remove: function(req, res) {
     var id = req.params.id;
-    FillLevelsModel.findByIdAndRemove(id, function(err, FillLevels) {
+    var obj = {};
+    obj[idenifiers.FillLevels] = id;
+    FillLevelsModel.findOneAndRemove(obj, function(err, FillLevels) {
       if (err) {
         return res.status(500).json({
           message: "Error when deleting the FillLevels.",

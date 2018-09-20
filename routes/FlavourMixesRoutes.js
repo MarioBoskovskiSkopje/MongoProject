@@ -24,7 +24,7 @@ router.post("/findFlavoursMixes", FlavourMixesController.findFlavoursMixes);
 /*
  * PUT
  */
-router.put("/:id", FlavourMixesController.update);
+router.put("/", FlavourMixesController.update);
 
 /*
  * DELETE
